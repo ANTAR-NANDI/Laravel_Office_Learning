@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\ProductAjaxController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,6 +14,8 @@ Route::get('/', function () {
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
+
+Route::resource('products-ajax-crud', ProductAjaxController::class);
 
 
 
