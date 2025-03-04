@@ -48,4 +48,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
+
+    // in case we dont use model_id as foreign key
+    // public function phone()
+    // {
+    //     return $this->hasOne(Phone::class, 'user_foreign_id');
+    // }
 }

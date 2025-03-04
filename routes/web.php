@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ProductAjaxController;
+use App\Models\User;
+use App\Models\Phone;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,7 +18,10 @@ Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect'])
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
 Route::resource('products-ajax-crud', ProductAjaxController::class);
-
+Route::get('/relationship', function () {
+    $users = User::all();
+    return view('relationship.index', compact('users'));
+});
 
 
 
